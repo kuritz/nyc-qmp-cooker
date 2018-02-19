@@ -21,7 +21,7 @@ pipeline:
     commands:
       - ./cooker -c ar71xx/generic --profile=ubnt-nano-m-xw --flavor=qmp_nyc
       - tar -cvzf ubnt-nano-m-xw.tar.gz output/ar71xx/generic/ubnt-nano-m-xw/
-  cook_ubnt-m-XM:
+  cook_ubnt-m-xm:
     image: josmo/nyc-mesh-cooker
     commands:
       - ./cooker -c ar71xx/generic --profile=ubnt-nano-m --flavor-qmp_nyc
