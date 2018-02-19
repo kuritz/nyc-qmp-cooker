@@ -1,4 +1,17 @@
 pipeline:
+  sftp_cache_restore:
+    image: appleboy/drone-sftp-cache
+    server: rancher.seattleslow.com
+    port: 22
+    username: rancher
+    secrets: [ sftp_cache_private_key ]
+    path: /home/rancher/drone
+    restore: true
+    mount: [tmp, dl, feeds, feeds.conf, files]
+    when:
+      local: false
+      event: [ push ]
+
   initial_build_ar7xx:
     image: josmo/nyc-mesh-cooker
     commands:
@@ -6,3 +19,15 @@ pipeline:
       - ./cooker -b ar71xx/generic
       - ./cooker -c ar71xx/generic --profile=ubnt-nano-m-xw --flavor=qmp_nyc
 
+  sftp_cache_build:
+    image: appleboy/drone-sftp-cache
+    server: rancher.seattleslow.com
+    port: 22
+    username: rancher
+    secrets: [ sftp_cache_private_key ]
+    path: /home/rancher/drone
+    rebuild: true
+    mount: [tmp, dl, feeds, feeds.conf, files]
+    when:
+      local: false
+      event: [ push ]
