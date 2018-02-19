@@ -21,12 +21,12 @@ pipeline:
     image: josmo/nyc-mesh-cooker
     commands:
       - ./cooker -c ar71xx/generic --profile=ubnt-nano-m-xw --flavor=qmp_nyc
-      - tar -cvf ubnt-nano-m-xw.tar output/ar71xx/generic/ubnt-nano-m-xw/
+      - tar -cvzf ubnt-nano-m-xw.tar.gz output/ar71xx/generic/ubnt-nano-m-xw/
 
   publish_ubnt-m-xm:
     image: plugins/github-release
     secrets: [ github_token ]
-    files: ubnt-nano-m-xw.tar
+    files: ubnt-nano-m-xw.tar.gz
     checksum:
       - md5
       - sha1
