@@ -35,7 +35,7 @@ pipeline:
   publish_ubnt-m-xw:
     image: plugins/github-release
     secrets: [ github_token ]
-    files: *.tar.gz
+    files: ./*.tar.gz
     checksum:
       - md5
       - sha1
