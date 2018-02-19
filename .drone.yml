@@ -16,7 +16,7 @@ pipeline:
     image: josmo/nyc-mesh-cooker
     commands:
       - env
-      - ./cooker -b ar71xx/generic
+      - ./cooker -b ar71xx/generic -j6
   cook_ubnt-m-xm:
     image: josmo/nyc-mesh-cooker
     commands:
