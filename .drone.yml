@@ -10,7 +10,7 @@ pipeline:
     mount: [tmp, dl, feeds, feeds.conf, files]
     when:
       local: false
-      event: [ push ]
+      event: [ push, tag ]
 
   initial_build_ar7xx:
     image: josmo/nyc-mesh-cooker
@@ -30,7 +30,7 @@ pipeline:
       - tar -cvzf tl-wr842n-v1.tar.gz output/ar71xx/generic/tl-wr842n-v1/
 
 
-  publish_ubnt-m-xw:
+  publish_images:
     image: plugins/github-release
     secrets: [ github_token ]
     files: ./*.tar.gz
@@ -53,4 +53,4 @@ pipeline:
     mount: [tmp, dl, feeds, feeds.conf, files]
     when:
       local: false
-      event: [ push ]
+      event: [ push, tag ]
