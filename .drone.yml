@@ -19,14 +19,23 @@ pipeline:
       - ./cooker -b ar71xx/generic -j6
   cook_ubnt-m-xw:
     image: josmo/nyc-mesh-cooker
+    group: cook
     commands:
       - ./cooker -c ar71xx/generic --profile=ubnt-nano-m-xw --flavor=qmp_nyc
       - tar -cvzf ubnt-nano-m-xw.tar.gz output/ar71xx/generic/ubnt-nano-m-xw/
 
+  cook_tl-wr842n-v1:
+    image: josmo/nyc-mesh-cooker
+    group: cook
+    commands:
+      - ./cooker -c ar71xx/generic --profile=tl-wr842n-v1 --flavor=qmp_nyc
+      - tar -cvzf tl-wr842n-v1.tar.gz output/ar71xx/generic/tl-wr842n-v1/
+
+
   publish_ubnt-m-xw:
     image: plugins/github-release
     secrets: [ github_token ]
-    files: ubnt-nano-m-xw.tar.gz
+    files: *.tar.gz
     checksum:
       - md5
       - sha1
