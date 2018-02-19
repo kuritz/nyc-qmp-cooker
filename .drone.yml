@@ -7,7 +7,7 @@ pipeline:
     secrets: [ sftp_cache_private_key ]
     path: /home/rancher/drone
     restore: true
-    mount: [tmp, dl, feeds, feeds.conf, files]
+    mount: [tmp, dl, feeds, feeds.conf, files, Macondo]
     when:
       local: false
       event: [ push ]
@@ -17,7 +17,23 @@ pipeline:
     commands:
       - env
       - ./cooker -b ar71xx/generic
-      - ./cooker -c ar71xx/generic --profile=ubnt-nano-m-xw --flavor=qmp_nyc
+  cook_ubnt-m-xm:
+    image: josmo/nyc-mesh-cooker
+    commands:
+      - ./cooker -c ar71xx/generic --profile=ubnt-nano-m-xm --flavor=qmp_nyc
+      - tar -cvf ubnt-nano-m-xw.tar output/ar71xx/generic/ubnt-nano-m-xw/
+
+  publish_ubnt-m-xm:
+    image: plugins/github-release
+    secrets: [ github_token ]
+    files: ubnt-nano-m-xw.tar
+    checksum:
+      - md5
+      - sha1
+      - sha256
+    draft: true
+    when:
+      event: tag
 
   sftp_cache_build:
     image: appleboy/drone-sftp-cache
@@ -27,7 +43,7 @@ pipeline:
     secrets: [ sftp_cache_private_key ]
     path: /home/rancher/drone
     rebuild: true
-    mount: [tmp, dl, feeds, feeds.conf, files]
+    mount: [tmp, dl, feeds, feeds.conf, files, Macondo]
     when:
       local: false
       event: [ push ]
