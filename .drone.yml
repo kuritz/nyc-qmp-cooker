@@ -1,0 +1,8 @@
+pipeline:
+  initial_build_ar7xx:
+    image: josmo/nyc-mesh-cooker
+    commands:
+      - env
+      - ./cooker -b ar71xx/generic
+      - ./cooker -c ar71xx/generic --profile=ubnt-nano-m-xw --flavor=qmp_nyc
+
