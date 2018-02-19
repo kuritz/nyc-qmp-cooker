@@ -7,7 +7,7 @@ pipeline:
     secrets: [ sftp_cache_private_key ]
     path: /home/rancher/drone
     restore: true
-    mount: [tmp, dl, feeds, feeds.conf, files, Macondo]
+    mount: [tmp, dl, feeds, feeds.conf, files]
     when:
       local: false
       event: [ push ]
@@ -19,14 +19,12 @@ pipeline:
       - ./cooker -b ar71xx/generic -j6
   cook_ubnt-m-xw:
     image: josmo/nyc-mesh-cooker
-    group: cook
     commands:
       - ./cooker -c ar71xx/generic --profile=ubnt-nano-m-xw --flavor=qmp_nyc
       - tar -cvzf ubnt-nano-m-xw.tar.gz output/ar71xx/generic/ubnt-nano-m-xw/
 
   cook_tl-wr842n-v1:
     image: josmo/nyc-mesh-cooker
-    group: cook
     commands:
       - ./cooker -c ar71xx/generic --profile=tl-wr842n-v1 --flavor=qmp_nyc
       - tar -cvzf tl-wr842n-v1.tar.gz output/ar71xx/generic/tl-wr842n-v1/
@@ -52,7 +50,7 @@ pipeline:
     secrets: [ sftp_cache_private_key ]
     path: /home/rancher/drone
     rebuild: true
-    mount: [tmp, dl, feeds, feeds.conf, files, Macondo]
+    mount: [tmp, dl, feeds, feeds.conf, files]
     when:
       local: false
       event: [ push ]
