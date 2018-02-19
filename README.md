@@ -1,3 +1,7 @@
+[![Build Status](https://drone.seattleslow.com/api/badges/nycmeshnet/nyc-qmp-cooker/status.svg)](https://drone.seattleslow.com/nycmeshnet/nyc-qmp-cooker)
+
+## FYI Everything bellow is from the LibreMesh and not supper applicable but let in to make merges back in simpler
+
 # lime-sdk cooker
 LibreMesh **software development kit** uses the [LEDE](https://lede-project.org/docs/start) SDK and ImageBuilder to generate (**cook**) LibreMesh packages and firmware. If you want to create your own LibreMesh flavor because you need some specific configuration or you just want to have control over your binaries, the cooker is your friend!
 
