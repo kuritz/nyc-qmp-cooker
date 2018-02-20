@@ -7,7 +7,7 @@ pipeline:
     secrets: [ sftp_cache_private_key ]
     path: /home/rancher/drone
     restore: true
-    mount: [tmp, dl, feeds, feeds.conf, files]
+    mount: [tmp, dl, files]
     when:
       local: false
       event: [ push, tag ]
@@ -50,7 +50,7 @@ pipeline:
     secrets: [ sftp_cache_private_key ]
     path: /home/rancher/drone
     rebuild: true
-    mount: [tmp, dl, feeds, feeds.conf, files]
+    mount: [tmp, dl, files]
     when:
       local: false
       event: [ push, tag ]
