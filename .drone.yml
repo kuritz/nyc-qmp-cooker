@@ -15,13 +15,17 @@ pipeline:
   initial_build_ar7xx:
     image: josmo/nyc-mesh-cooker
     commands:
-      - env
       - ./cooker -b ar71xx/generic -j6
   cook_ubnt-m-xw:
     image: josmo/nyc-mesh-cooker
     commands:
       - ./cooker -c ar71xx/generic --profile=ubnt-nano-m-xw --flavor=qmp_nyc
       - tar -cvzf ubnt-nano-m-xw.tar.gz output/ar71xx/generic/ubnt-nano-m-xw/
+  cook_ubnt-m-xm:
+    image: josmo/nyc-mesh-cooker
+    commands:
+      - ./cooker -c ar71xx/generic --profile=ubnt-nano-m --flavor-qmp_nyc
+      - tar -cvzf ubnt-nano-m-xm.tar.gz output/ar71xx/generic/ubnt-nano-m/
 
   cook_tl-wr842n-v1:
     image: josmo/nyc-mesh-cooker
