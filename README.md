@@ -1,5 +1,7 @@
 [![Build Status](https://drone.seattleslow.com/api/badges/nycmeshnet/nyc-qmp-cooker/status.svg)](https://drone.seattleslow.com/nycmeshnet/nyc-qmp-cooker)
 
+##TODO: add a downstream build from the the meshnet
+
 ## FYI Everything bellow is from the LibreMesh and not super applicable but left in to make merges back in simpler
 
 # lime-sdk cooker
