@@ -1,6 +1,20 @@
 [![Build Status](https://drone.seattleslow.com/api/badges/nycmeshnet/nyc-qmp-cooker/status.svg)](https://drone.seattleslow.com/nycmeshnet/nyc-qmp-cooker)
 
-##TODO: add a downstream build from the the meshnet
+# NYC Mesh Firmware
+###Where to get it
+In the releases section of this repo just grab the latest released version
+
+In general sysupgrade is when you're already running openwrt and factory is when you're using the routers original firmware
+
+Known Issues:
+* doing a sysupgrade will reset the password to 13f and possibly have other issues. We suggest logging in and doing a
+full reset when doing a sysupgrade
+
+
+TODO: 
+* add a downstream build from the the meshnet
+* figure out better versioning since any build just grabs the latest from the meshfeed
+
 
 ## FYI Everything bellow is from the LibreMesh and not super applicable but left in to make merges back in simpler
 
