@@ -20,19 +20,19 @@ pipeline:
     image: josmo/nyc-mesh-cooker
     commands:
       - ./cooker -c ar71xx/generic --profile=ubnt-nano-m-xw --flavor=qmp_nyc
-      - tar -cvzf ubnt-nano-m-xw.tar.gz -C output/ar71xx/generic/ubnt-nano-m-xw/ .
+      - tar -cvzf ubnt-nano-m-xw.tar.gz -C output/ar71xx/generic/ubnt-nano-m-xw/ . --exclude='*vmlinux*' --exclude='*manifest' --exclude='*squashfs' --exclude='*lzma.bin'
+
   cook_ubnt-m-xm:
     image: josmo/nyc-mesh-cooker
     commands:
       - ./cooker -c ar71xx/generic --profile=ubnt-nano-m --flavor-qmp_nyc
-      - tar -cvzf ubnt-nano-m-xm.tar.gz -C output/ar71xx/generic/ubnt-nano-m/ .
+      - tar -cvzf ubnt-nano-m-xm.tar.gz -C output/ar71xx/generic/ubnt-nano-m/ . --exclude='*vmlinux*' --exclude='*manifest' --exclude='*squashfs' --exclude='*lzma.bin'
 
   cook_tl-wr842n-v1:
     image: josmo/nyc-mesh-cooker
     commands:
       - ./cooker -c ar71xx/generic --profile=tl-wr842n-v1 --flavor=qmp_nyc
-      - tar -cvzf tl-wr842n-v1.tar.gz -C output/ar71xx/generic/tl-wr842n-v1/ .
-
+      - tar -cvzf tl-wr842n-v1.tar.gz -C output/ar71xx/generic/tl-wr842n-v1/ . --exclude='*vmlinux*' --exclude='*manifest' --exclude='*squashfs' --exclude='*lzma.bin'
 
   publish_images:
     image: plugins/github-release
