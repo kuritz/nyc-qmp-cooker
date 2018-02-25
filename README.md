@@ -16,6 +16,12 @@ TODO:
 * figure out better versioning since any build just grabs the latest from the meshfeed
 
 
+#Build Steps with Docker
+
+* Dependencies - Docker, Drone binary for drone ci, case-sensitive file system
+1) drone exec
+2) binaries will be in the ouput folder
+
 ## FYI Everything bellow is from the LibreMesh and not super applicable but left in to make merges back in simpler
 
 # lime-sdk cooker
