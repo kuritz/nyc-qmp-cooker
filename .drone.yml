@@ -25,7 +25,7 @@ pipeline:
   cook_ubnt-m-xm:
     image: josmo/nyc-mesh-cooker
     commands:
-      - ./cooker -c ar71xx/generic --profile=ubnt-nano-m --flavor-qmp_nyc
+      - ./cooker -c ar71xx/generic --profile=ubnt-nano-m --flavor=qmp_nyc
       - tar -cvzf ubnt-nano-m-xm.tar.gz -C output/ar71xx/generic/ubnt-nano-m/ . --exclude='*vmlinux*' --exclude='*manifest' --exclude='*squashfs' --exclude='*lzma.bin'
 
   cook_tl-wr842n-v1:
